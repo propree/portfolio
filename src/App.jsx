@@ -7,6 +7,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience";
+import Signup from "./components/SignUp";
 // import Notes from "./components/Notes";
 
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/experience" element={<Experience />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </Router>
   );

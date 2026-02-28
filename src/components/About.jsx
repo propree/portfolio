@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Particles from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import "./AboutPage.css";
-
+import "./ContactPage.css";
 const About = () => {
   const particlesInit = async (engine) => {
     await loadSlim(engine);
@@ -31,6 +31,8 @@ const About = () => {
 
   return (
     <div className="about-container">
+        <div className="cursor-glow"></div>
+
       <Particles
         init={particlesInit}
         options={{

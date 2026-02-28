@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Particles from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import "./ContactPage.css";
@@ -8,8 +8,24 @@ const Contact = () => {
     await loadSlim(engine);
   };
 
+  useEffect(() => {
+  const cursor = document.querySelector(".cursor-glow");
+
+  const moveCursor = (e) => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+  };
+
+  window.addEventListener("mousemove", moveCursor);
+
+  return () => {
+    window.removeEventListener("mousemove", moveCursor);
+  };
+}, []);
+
   return (
     <div className="contact-container">
+        <div className="cursor-glow"></div>
       <Particles
         init={particlesInit}
         options={{
@@ -65,7 +81,7 @@ const Contact = () => {
 
           <div className="info-box">
             <span>Email</span>
-            <h3>preeetesxxxxxxxxxx@gmail.com</h3>
+            <h3 >preeetesxxxxxxxxxx@gmail.com</h3>
           </div>
 
           <div className="info-box">
@@ -82,7 +98,7 @@ const Contact = () => {
 
         {/* RIGHT SIDE FORM */}
         <div className="contact-card">
-          <h2>Send Message</h2>
+          <h2 style={{color: "#ff6b00"}}>Send Message</h2>
 
           <form>
             <div className="input-group">
@@ -100,7 +116,7 @@ const Contact = () => {
               <label>Your Message</label>
             </div>
 
-            <button type="submit">Send Message</button>
+            <button style={{color:"white"}} type="submit">Send Message</button>
           </form>
         </div>
 
